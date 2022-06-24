@@ -32,7 +32,7 @@ steps:
   displayName: 'Run Fortify on Demand static assessment on WebGoat'
   inputs:
     FortifyProjects: WebGoat
-    FodConnection: 'AMS-Connection'
+    FodConnection: 'EMEA-fod'
     ReleaseOptions: 0
     ReleaseId: 325454
     EntitlementSelection: 1

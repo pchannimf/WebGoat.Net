@@ -19,7 +19,6 @@ steps:
   displayName: 'Build solution WebGoat.NET.sln'
   inputs:
     solution: WebGoat.NET.sln
-    msbuildVersion: 16.0
 
 - task: fortifyvsts.hpe-security-fortify-vsts.build-task-fortify-on-demand-static.FortifyOnDemandStatic@8
   displayName: 'Run Fortify on Demand static assessment on WebGoat'

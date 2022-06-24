@@ -15,10 +15,14 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: MSBuild@1
-  displayName: 'Build solution WebGoat.NET.sln'
+- task: VSBuild@1
+  displayName: 'Build solution'
   inputs:
-    solution: WebGoat.NET.sln
+    solution: '$(Parameters.solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactstagingdirectory)\\"'
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+  enabled: false
 
 - task: fortifyvsts.hpe-security-fortify-vsts.build-task-fortify-on-demand-static.FortifyOnDemandStatic@8
   displayName: 'Run Fortify on Demand static assessment on WebGoat'
